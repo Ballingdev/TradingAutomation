@@ -64,7 +64,6 @@ namespace TradingAutomation.Streaming
         {
             _contextId = DateTime.Now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture);
 
-            Helper.InitializeClient();
             await EnsureStickiness();
 
             await Task.WhenAll(

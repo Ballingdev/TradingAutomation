@@ -1,6 +1,7 @@
 ﻿
 using System;
 using StructureMap;
+using TradingAutomation.Core;
 using TradingAutomation.Streaming;
 
 namespace TradingAutomation
@@ -20,6 +21,10 @@ namespace TradingAutomation
             var subscriptionManager = container.GetInstance<ISubscriptionManager>();
             var signalRConnectionManager = container.GetInstance<ISignalRConnectionManager>();
             var activityMonitor = container.GetInstance<IActivityMonitor>();
+
+            var accountVariables = container.GetInstance<AccountVariables>();
+
+            accountVariables.InitializeVariables();
 
             try
             {

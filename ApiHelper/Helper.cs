@@ -11,7 +11,7 @@ namespace TradingAutomation.ApiHelper
  
         public static CookieContainer CookieContainer { get; set; }
 
-        public static void InitializeClient()
+        public static HttpClient InitializeClient()
         {
             CookieContainer = new CookieContainer();
             var clientHandler = new HttpClientHandler
@@ -22,6 +22,8 @@ namespace TradingAutomation.ApiHelper
             };
             HttpClient = new HttpClient(clientHandler);
             HttpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {Config.ApiKey}");
+
+            return HttpClient;
         }
 
         public void Dispose()
